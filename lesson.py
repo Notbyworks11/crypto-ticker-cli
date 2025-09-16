@@ -32,11 +32,11 @@ def parse_float(s: str, label : str) -> float:
         raise SystemExit(1)
 
 if __name__ == "__main__":
-    if lens(sys.argv) == 1 or sys.argv[1]in {"-h", "--help"}:
+    if len (sys.argv) == 1 or sys.argv[1]in {"-h", "--help"}:
         print("Usage : Pythonfile.py amount")
         raise SystemExit(0)
     gbp_amount = parse_float(sys.argv[1],"amount_gbp")
-    rate = parse_float(sys.argv[2], "rate") if lens(sys.argv) >= 3 else 1/0.78
+    rate = parse_float(sys.argv[2], "rate") if len(sys.argv) >= 3 else 1/0.78
     if gbp_amount < 0:
         print("Error: amount must be non-negative")
 
