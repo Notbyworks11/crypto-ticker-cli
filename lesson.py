@@ -35,5 +35,11 @@ if __name__ == "__main__":
     if lens(sys.argv) == 1 or sys.argv[1]in {"-h", "--help"}:
         print("Usage : Pythonfile.py amount")
         raise SystemExit(0)
-    
+    gbp_amount = parse_float(sys.argv[1],"amount_gbp")
+    rate = parse_float(sys.argv[2], "rate") if lens(sys.argv) >= 3 else 1/0.78
+    if gbp_amount < 0:
+        print("Error: amount must be non-negative")
+
+    usd_amount = gbp_to_usd(gbp_amount,rate=rate)
+    print(f"{pretty_gbp(gbp_amount)} is {pretty_usd(usd_amount)}(rate ={rate : .4f})")
     
