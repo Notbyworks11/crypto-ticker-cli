@@ -30,3 +30,10 @@ def parse_float(s: str, label : str) -> float:
     except ValueError:
         print(f'Error: {label} must be a number. Got {s!r}')
         raise SystemExit(1)
+
+if __name__ == "__main__":
+    if lens(sys.argv) == 1 or sys.argv[1]in {"-h", "--help"}:
+        print("Usage : Pythonfile.py amount")
+        raise SystemExit(0)
+    
+    
